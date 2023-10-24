@@ -1,12 +1,13 @@
 from django.shortcuts import render
 from django.http import HttpResponse
-from . models import place
+from . models import place,tip
 
 # Create your views here.
 def fun(request):
     obj= place.objects.all()
+    tips=tip.objects.all()
 
-    return render(request,"index.html",{'results':obj})
+    return render(request,"index.html",{'results':obj,'tips':tips})
 
 def addition(request):
     num1=(request.POST.get("num1"))
